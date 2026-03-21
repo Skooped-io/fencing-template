@@ -95,7 +95,7 @@ const FenceStyles = () => (
                 <p className="text-sm text-muted-foreground"><span className="font-semibold text-foreground">Materials:</span> {style.materials}</p>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <h4 className="text-sm font-semibold text-green-700 mb-2">Advantages</h4>
+                    <h4 className="text-sm font-semibold text-primary mb-2">Advantages</h4>
                     <ul className="space-y-1.5">
                       {style.pros.map(p => (
                         <li key={p} className="flex items-start gap-2 text-sm text-muted-foreground">

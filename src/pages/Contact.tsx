@@ -30,12 +30,12 @@ const Contact = () => {
           <div className="grid lg:grid-cols-5 gap-12 mt-12">
             <ScrollReveal className="lg:col-span-3">
               {submitted ? (
-                <div className="bg-green-50 border border-green-200 rounded-lg p-8 text-center space-y-3">
-                  <div className="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mx-auto">
-                    <Shield className="w-6 h-6 text-green-600" />
+                <div className="bg-primary/5 border border-primary/20 rounded-lg p-8 text-center space-y-3">
+                  <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
+                    <Shield className="w-6 h-6 text-primary" />
                   </div>
-                  <h3 className="text-xl font-semibold text-green-900">Estimate Request Received!</h3>
-                  <p className="text-sm text-green-700">We'll contact you within 1 business day to schedule your free on-site estimate.</p>
+                  <h3 className="text-xl font-semibold">Estimate Request Received!</h3>
+                  <p className="text-sm text-muted-foreground">We'll contact you within 1 business day to schedule your free on-site estimate.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">

@@ -99,7 +99,7 @@ const FenceStyles = () => (
                     <ul className="space-y-1.5">
                       {style.pros.map(p => (
                         <li key={p} className="flex items-start gap-2 text-sm text-muted-foreground">
-                          <Check className="w-4 h-4 text-green-600 shrink-0 mt-0.5" /> {p}
+                          <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" /> {p}
                         </li>
                       ))}
                     </ul>

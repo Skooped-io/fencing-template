@@ -105,7 +105,7 @@ const FenceStyles = () => (
                     </ul>
                   </div>
                   <div>
-                    <h4 className="text-sm font-semibold text-red-700 mb-2">Considerations</h4>
+                    <h4 className="text-sm font-semibold text-destructive mb-2">Considerations</h4>
                     <ul className="space-y-1.5">
                       {style.cons.map(c => (
                         <li key={c} className="flex items-start gap-2 text-sm text-muted-foreground">

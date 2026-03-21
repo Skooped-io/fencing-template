@@ -156,7 +156,7 @@ const FenceStyles = () => (
                     <td className="py-3 pr-4 font-medium">{row.feature}</td>
                     {(["wood", "vinyl", "aluminum", "chainlink", "farm"] as const).map(col => (
                       <td key={col} className="text-center py-3 px-3">
-                        {row[col] ? <Check className="w-4 h-4 text-green-600 mx-auto" /> : <X className="w-4 h-4 text-muted-foreground/40 mx-auto" />}
+                        {row[col] ? <Check className="w-4 h-4 text-primary mx-auto" /> : <X className="w-4 h-4 text-muted-foreground/40 mx-auto" />}
                       </td>
                     ))}
                   </tr>

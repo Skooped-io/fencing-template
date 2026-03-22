@@ -1,0 +1,81 @@
+{
+  "businessName": "Precision Fence Co.",
+  "businessNameShort": "PF",
+  "phone": "(555) 123-4567",
+  "phoneRaw": "5551234567",
+  "email": "info@precisionfence.com",
+  "address": {
+    "street": "1234 Main Street",
+    "city": "Minneapolis",
+    "state": "MN",
+    "zip": "55401",
+    "full": "1234 Main Street, Minneapolis, MN 55401"
+  },
+  "serviceArea": "Twin Cities Metro & surrounding counties within 60 miles",
+  "industry": "Fence Installation & Repair",
+  "yearEstablished": "2008",
+  "licenseNumber": "FEN-2024-1847",
+  "about": "Precision Fence Co. was founded in 2008 by Tom Harrelson, a third-generation carpenter who grew up watching his grandfather build fences across rural Minnesota. What started as a two-person crew has grown into the region's most trusted fencing contractor.",
+  "aboutExtra": "We've installed over 2,400 fences and counting. Every project gets the same attention to detail — whether it's a 50-foot garden border or a multi-acre ranch perimeter.",
+  "tagline": "Trusted Since 2008",
+  "stats": {
+    "fencesInstalled": "2,400+",
+    "yearsExperience": "15+",
+    "reviewRating": "4.9",
+    "reviewCount": "380+"
+  },
+  "services": [
+    "Wood Privacy Fences",
+    "Vinyl Fences",
+    "Aluminum & Iron",
+    "Chain Link",
+    "Farm & Ranch",
+    "Custom & Decorative"
+  ],
+  "fenceOptions": [
+    "Wood Privacy",
+    "Vinyl",
+    "Aluminum / Iron",
+    "Chain Link",
+    "Farm & Ranch",
+    "Custom / Decorative",
+    "Not Sure — Need Advice"
+  ],
+  "team": [
+    { "name": "Tom Harrelson", "role": "Founder & Lead Installer", "years": "18 years experience" },
+    { "name": "Maria Vasquez", "role": "Project Manager", "years": "12 years experience" },
+    { "name": "Jake Morrison", "role": "Senior Craftsman", "years": "10 years experience" }
+  ],
+  "testimonials": [
+    { "name": "Margaret Lindgren", "text": "They replaced our old chain link with a beautiful cedar fence. The crew was professional, on time, and left the yard spotless. Couldn't be happier.", "rating": 5 },
+    { "name": "David Kowalski", "text": "Got three estimates and Precision Fence was the most thorough. They handled our HOA paperwork and the aluminum fence looks incredible around the pool.", "rating": 5 },
+    { "name": "Sarah Chen", "text": "Our vinyl fence has held up through two harsh winters without a single issue. The lifetime post warranty gave us real peace of mind.", "rating": 5 }
+  ],
+  "seo": {
+    "home": {
+      "title": "Precision Fence Co. | Fence Installation & Repair in Minneapolis, MN",
+      "description": "Professional fence installation in the Twin Cities metro. Wood, vinyl, aluminum & chain link fencing. Free estimates. Licensed & insured. Call (555) 123-4567.",
+      "h1": "Quality Fences\nBuilt to Last"
+    },
+    "about": {
+      "title": "About Precision Fence Co. | Minneapolis, MN",
+      "description": "Family-owned fence contractor serving the Twin Cities since 2008. Over 2,400 fences installed. Licensed, insured, and committed to craftsmanship."
+    },
+    "fenceStyles": {
+      "title": "Fence Styles & Pricing | Precision Fence Co.",
+      "description": "Explore wood, vinyl, aluminum, chain link, and custom fence styles with transparent pricing. Free estimates in the Twin Cities metro."
+    },
+    "gallery": {
+      "title": "Project Gallery | Precision Fence Co.",
+      "description": "Browse our recent fence installations across the Twin Cities. Cedar privacy, vinyl, aluminum, and custom fence projects."
+    },
+    "faq": {
+      "title": "FAQ | Precision Fence Co.",
+      "description": "Common questions about fence installation, materials, pricing, and our process. Get answers from the Twin Cities' trusted fence contractor."
+    },
+    "contact": {
+      "title": "Contact Precision Fence Co. | Free Estimates in Minneapolis, MN",
+      "description": "Request a free fence estimate. We visit your property, take measurements, and provide a detailed quote. Call (555) 123-4567."
+    }
+  }
+}

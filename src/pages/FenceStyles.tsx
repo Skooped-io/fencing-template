@@ -2,7 +2,7 @@ import { Check, X } from "lucide-react";
 import Layout from "@/components/Layout";
 import ScrollReveal from "@/components/ScrollReveal";
 import PageHead from "@/components/PageHead";
-import { seoConfig, getImage } from "@/lib/config";
+import { seoConfig, getImage, slugify } from "@/lib/config";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 

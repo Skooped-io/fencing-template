@@ -5,7 +5,7 @@ import Layout from "@/components/Layout";
 import ScrollReveal from "@/components/ScrollReveal";
 import PageHead from "@/components/PageHead";
 import SchemaOrg from "@/components/SchemaOrg";
-import { seoConfig, getImage } from "@/lib/config";
+import { seoConfig, getImage, slugify } from "@/lib/config";
 
 import heroImg from "@/assets/hero-fence.jpg";
 import fenceWood from "@/assets/fence-wood.jpg";

@@ -115,7 +115,7 @@ const Index = () => (
           {fenceTypes.map((fence, i) => (
             <ScrollReveal key={fence.name} delay={i * 80}>
               <Link
-                to="/fence-styles"
+                to={`/services/${slugify(fence.name)}`}
                 className="group block bg-card rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300"
               >
                 <div className="overflow-hidden">

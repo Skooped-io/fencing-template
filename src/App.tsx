@@ -27,6 +27,7 @@ const App = () => (
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/faq" element={<FAQ />} />
+          <Route path="/services/:slug" element={<ServiceDetail />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </HashRouter>

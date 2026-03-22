@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { seoConfig } from "@/lib/config";
 
 const navLinks = [
   { to: "/", label: "Home" },
@@ -21,9 +22,9 @@ const Navbar = () => {
       <div className="container-main flex items-center justify-between h-16 md:h-20 px-4 md:px-8">
         <Link to="/" className="flex items-center gap-2">
           <div className="w-8 h-8 bg-primary rounded-sm flex items-center justify-center">
-            <span className="text-primary-foreground font-heading font-bold text-sm">PF</span>
+            <span className="text-primary-foreground font-heading font-bold text-sm">{seoConfig.businessNameShort}</span>
           </div>
-          <span className="font-heading font-bold text-lg text-secondary">Precision Fence Co.</span>
+          <span className="font-heading font-bold text-lg text-secondary">{seoConfig.businessName}</span>
         </Link>
 
         <div className="hidden lg:flex items-center gap-1">
@@ -43,9 +44,9 @@ const Navbar = () => {
         </div>
 
         <div className="hidden lg:flex items-center gap-3">
-          <a href="tel:5551234567" className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+          <a href={`tel:${seoConfig.phoneRaw}`} className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
             <Phone className="w-4 h-4" />
-            (555) 123-4567
+            {seoConfig.phone}
           </a>
           <Button asChild>
             <Link to="/contact">Free Estimate</Link>

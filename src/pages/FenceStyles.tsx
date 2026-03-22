@@ -1,6 +1,8 @@
 import { Check, X } from "lucide-react";
 import Layout from "@/components/Layout";
 import ScrollReveal from "@/components/ScrollReveal";
+import PageHead from "@/components/PageHead";
+import { seoConfig, getImage } from "@/lib/config";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
@@ -15,6 +17,7 @@ const styles = [
   {
     name: "Wood Privacy",
     img: fenceWood,
+    slot: "fence_wood",
     materials: "Western Red Cedar, Pressure-Treated Pine, Redwood",
     pros: ["Natural beauty", "Customizable height & style", "Excellent privacy", "Can be stained any color"],
     cons: ["Requires periodic maintenance", "Susceptible to rot without treatment"],
@@ -23,6 +26,7 @@ const styles = [
   {
     name: "Vinyl",
     img: fenceVinyl,
+    slot: "fence_vinyl",
     materials: "Commercial-Grade PVC, UV-Stabilized Vinyl",
     pros: ["Zero maintenance", "Won't rot, warp, or peel", "25-year color warranty", "Multiple styles available"],
     cons: ["Higher upfront cost", "Limited color options", "Can crack in extreme cold"],
@@ -31,6 +35,7 @@ const styles = [
   {
     name: "Aluminum & Iron",
     img: fenceAluminum,
+    slot: "fence_aluminum",
     materials: "Powder-Coated Aluminum, Wrought Iron",
     pros: ["Elegant appearance", "Extremely durable", "Low maintenance", "Won't obstruct views"],
     cons: ["No privacy", "Higher cost for iron", "Can dent (aluminum)"],
@@ -39,6 +44,7 @@ const styles = [
   {
     name: "Chain Link",
     img: fenceChainlink,
+    slot: "fence_chainlink",
     materials: "Galvanized Steel, Vinyl-Coated Steel",
     pros: ["Most affordable option", "Very durable", "Low maintenance", "Quick installation"],
     cons: ["Minimal privacy", "Less aesthetic appeal"],
@@ -47,6 +53,7 @@ const styles = [
   {
     name: "Farm & Ranch",
     img: fenceFarm,
+    slot: "fence_farm",
     materials: "Cedar Split Rail, Post-and-Board, Wire",
     pros: ["Rustic character", "Defines property lines", "Affordable for large areas", "Low maintenance"],
     cons: ["Not for privacy", "Won't contain small pets"],
@@ -55,6 +62,7 @@ const styles = [
   {
     name: "Custom & Decorative",
     img: fenceCustom,
+    slot: "fence_custom",
     materials: "Mixed Materials, Artisan Ironwork, Hardwoods",
     pros: ["Completely unique", "Adds significant property value", "Artistic expression", "Premium materials"],
     cons: ["Longer lead times", "Higher investment"],
@@ -73,6 +81,8 @@ const comparison = [
 
 const FenceStyles = () => (
   <Layout>
+    <PageHead title={seoConfig.seo.fenceStyles.title} description={seoConfig.seo.fenceStyles.description} />
+
     <section className="section-padding">
       <div className="container-main text-center">
         <ScrollReveal>
@@ -89,7 +99,7 @@ const FenceStyles = () => (
         <div className="container-main">
           <ScrollReveal>
             <div className="grid lg:grid-cols-2 gap-8 items-start">
-              <img src={style.img} alt={style.name + " fence"} className="rounded-lg shadow-md w-full aspect-[3/2] object-cover" />
+              <img src={getImage(null, style.slot, style.img)} alt={style.name + " fence"} className="rounded-lg shadow-md w-full aspect-[3/2] object-cover" />
               <div className="space-y-5">
                 <h2>{style.name}</h2>
                 <p className="text-sm text-muted-foreground"><span className="font-semibold text-foreground">Materials:</span> {style.materials}</p>

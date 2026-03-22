@@ -3,6 +3,9 @@ import { Shield, Wrench, Ruler, Award, ArrowRight, Star, ChevronRight, Phone } f
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import ScrollReveal from "@/components/ScrollReveal";
+import PageHead from "@/components/PageHead";
+import SchemaOrg from "@/components/SchemaOrg";
+import { seoConfig, getImage } from "@/lib/config";
 
 import heroImg from "@/assets/hero-fence.jpg";
 import fenceWood from "@/assets/fence-wood.jpg";
@@ -16,12 +19,12 @@ import project2 from "@/assets/project-2.jpg";
 import project3 from "@/assets/project-3.jpg";
 
 const fenceTypes = [
-  { name: "Wood Privacy", desc: "Classic cedar and pine privacy fences with customizable heights and styles.", img: fenceWood },
-  { name: "Vinyl", desc: "Low-maintenance vinyl fencing available in white, tan, and woodgrain finishes.", img: fenceVinyl },
-  { name: "Aluminum & Iron", desc: "Elegant ornamental fencing for security and curb appeal.", img: fenceAluminum },
-  { name: "Chain Link", desc: "Durable and affordable fencing for yards, sports areas, and commercial properties.", img: fenceChainlink },
-  { name: "Farm & Ranch", desc: "Split rail, post-and-board, and agricultural fencing built to last.", img: fenceFarm },
-  { name: "Custom & Decorative", desc: "One-of-a-kind gates, arbors, and decorative fence designs.", img: fenceCustom },
+  { name: "Wood Privacy", desc: "Classic cedar and pine privacy fences with customizable heights and styles.", img: fenceWood, slot: "fence_wood" },
+  { name: "Vinyl", desc: "Low-maintenance vinyl fencing available in white, tan, and woodgrain finishes.", img: fenceVinyl, slot: "fence_vinyl" },
+  { name: "Aluminum & Iron", desc: "Elegant ornamental fencing for security and curb appeal.", img: fenceAluminum, slot: "fence_aluminum" },
+  { name: "Chain Link", desc: "Durable and affordable fencing for yards, sports areas, and commercial properties.", img: fenceChainlink, slot: "fence_chainlink" },
+  { name: "Farm & Ranch", desc: "Split rail, post-and-board, and agricultural fencing built to last.", img: fenceFarm, slot: "fence_farm" },
+  { name: "Custom & Decorative", desc: "One-of-a-kind gates, arbors, and decorative fence designs.", img: fenceCustom, slot: "fence_custom" },
 ];
 
 const features = [
@@ -32,9 +35,9 @@ const features = [
 ];
 
 const projects = [
-  { img: project1, type: "Cedar Privacy Fence", location: "Maplewood, MN", desc: "240 linear feet of 6-foot cedar privacy fencing with a custom arched gate." },
-  { img: project2, type: "Modern Horizontal Slat", location: "Edina, MN", desc: "Contemporary dark-stained horizontal fence with stainless steel hardware." },
-  { img: project3, type: "Pool Safety Fence", location: "Plymouth, MN", desc: "Code-compliant aluminum pool enclosure with self-closing gate system." },
+  { img: project1, type: "Cedar Privacy Fence", location: "Maplewood, MN", desc: "240 linear feet of 6-foot cedar privacy fencing with a custom arched gate.", slot: "project_1" },
+  { img: project2, type: "Modern Horizontal Slat", location: "Edina, MN", desc: "Contemporary dark-stained horizontal fence with stainless steel hardware.", slot: "project_2" },
+  { img: project3, type: "Pool Safety Fence", location: "Plymouth, MN", desc: "Code-compliant aluminum pool enclosure with self-closing gate system.", slot: "project_3" },
 ];
 
 const steps = [
@@ -44,24 +47,23 @@ const steps = [
   { num: "04", title: "Final Inspection", desc: "Walk-through to ensure everything meets our standards and your expectations." },
 ];
 
-const testimonials = [
-  { name: "Margaret Lindgren", text: "They replaced our old chain link with a beautiful cedar fence. The crew was professional, on time, and left the yard spotless. Couldn't be happier.", rating: 5 },
-  { name: "David Kowalski", text: "Got three estimates and Precision Fence was the most thorough. They handled our HOA paperwork and the aluminum fence looks incredible around the pool.", rating: 5 },
-  { name: "Sarah Chen", text: "Our vinyl fence has held up through two harsh winters without a single issue. The lifetime post warranty gave us real peace of mind.", rating: 5 },
-];
-
 const Index = () => (
   <Layout>
+    <PageHead title={seoConfig.seo.home.title} description={seoConfig.seo.home.description} />
+    <SchemaOrg />
+
     {/* Hero */}
     <section className="relative overflow-hidden">
       <div className="container-main grid lg:grid-cols-2 gap-8 lg:gap-12 items-center px-4 md:px-8 py-12 md:py-20 lg:py-28">
         <div className="space-y-6">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/15 text-accent font-medium text-sm">
             <Award className="w-4 h-4" />
-            Trusted Since 2008
+            {seoConfig.tagline}
           </div>
           <h1 className="text-foreground">
-            Quality Fences<br />Built to Last
+            {seoConfig.seo.home.h1.split("\n").map((line, i) => (
+              <span key={i}>{line}{i === 0 && <br />}</span>
+            ))}
           </h1>
           <p className="text-muted-foreground max-w-lg text-lg">
             Enhance your property's value, security, and curb appeal with expertly crafted fences. From classic wood privacy to modern aluminum — installed right, guaranteed.
@@ -78,21 +80,21 @@ const Index = () => (
             </Button>
           </div>
           <div className="flex items-center gap-6 pt-4 text-sm text-muted-foreground">
-            <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-green-500" /> 2,400+ fences installed</span>
-            <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-green-500" /> 15+ years experience</span>
+            <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-green-500" /> {seoConfig.stats.fencesInstalled} fences installed</span>
+            <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-green-500" /> {seoConfig.stats.yearsExperience} years experience</span>
           </div>
         </div>
         <div className="relative">
           <img
-            src={heroImg}
-            alt="Beautiful cedar privacy fence installation in a residential backyard"
+            src={getImage(null, 'hero', heroImg)}
+            alt={`${seoConfig.businessName} - ${seoConfig.industry}`}
             className="rounded-lg shadow-2xl w-full object-cover aspect-[4/3]"
           />
           <div className="absolute -bottom-4 -left-4 bg-card rounded-lg shadow-lg p-4 hidden md:flex items-center gap-3">
             <div className="flex -space-x-1">
               {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-accent text-accent" />)}
             </div>
-            <span className="text-sm font-medium">4.9 rating · 380+ reviews</span>
+            <span className="text-sm font-medium">{seoConfig.stats.reviewRating} rating · {seoConfig.stats.reviewCount} reviews</span>
           </div>
         </div>
       </div>
@@ -118,7 +120,7 @@ const Index = () => (
               >
                 <div className="overflow-hidden">
                   <img
-                    src={fence.img}
+                    src={getImage(null, fence.slot, fence.img)}
                     alt={fence.name + " fence"}
                     className="w-full aspect-[3/2] object-cover group-hover:scale-105 transition-transform duration-500"
                   />
@@ -182,7 +184,7 @@ const Index = () => (
           {projects.map((p, i) => (
             <ScrollReveal key={i} delay={i * 100}>
               <div className="bg-card rounded-lg overflow-hidden shadow-sm">
-                <img src={p.img} alt={p.type} className="w-full aspect-[3/2] object-cover" />
+                <img src={getImage(null, p.slot, p.img)} alt={p.type} className="w-full aspect-[3/2] object-cover" />
                 <div className="p-5 space-y-2">
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-medium text-primary uppercase tracking-wider">{p.type}</span>
@@ -234,7 +236,7 @@ const Index = () => (
           </div>
         </ScrollReveal>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {testimonials.map((t, i) => (
+          {seoConfig.testimonials.map((t, i) => (
             <ScrollReveal key={i} delay={i * 100}>
               <div className="bg-card rounded-lg p-6 shadow-sm space-y-4">
                 <div className="flex gap-0.5">
@@ -262,9 +264,9 @@ const Index = () => (
               <Link to="/contact">Request Your Free Estimate</Link>
             </Button>
             <Button size="lg" variant="outline" className="border-dark-section-foreground/20 text-dark-section-foreground hover:bg-dark-section-foreground/10" asChild>
-              <a href="tel:5551234567">
+              <a href={`tel:${seoConfig.phoneRaw}`}>
                 <Phone className="w-4 h-4 mr-2" />
-                (555) 123-4567
+                {seoConfig.phone}
               </a>
             </Button>
           </div>

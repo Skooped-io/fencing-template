@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Layout from "@/components/Layout";
 import ScrollReveal from "@/components/ScrollReveal";
+import PageHead from "@/components/PageHead";
+import { seoConfig, getImage } from "@/lib/config";
 
 import fenceWood from "@/assets/fence-wood.jpg";
 import fenceVinyl from "@/assets/fence-vinyl.jpg";
@@ -16,16 +18,16 @@ import project3 from "@/assets/project-3.jpg";
 const filters = ["All", "Wood", "Vinyl", "Metal", "Chain Link", "Custom"] as const;
 
 const galleryItems = [
-  { img: fenceWood, type: "Wood", caption: "Horizontal cedar privacy fence — Edina" },
-  { img: fenceVinyl, type: "Vinyl", caption: "White vinyl with lattice top — Minnetonka" },
-  { img: fenceAluminum, type: "Metal", caption: "Ornamental aluminum — Plymouth" },
-  { img: fenceChainlink, type: "Chain Link", caption: "Vinyl-coated chain link — Brooklyn Park" },
-  { img: fenceCustom, type: "Custom", caption: "Custom wrought iron gate — Wayzata" },
-  { img: fenceFarm, type: "Wood", caption: "Split rail ranch fence — Maple Grove" },
-  { img: heroImg, type: "Wood", caption: "Cedar dog-ear privacy — Maplewood" },
-  { img: project1, type: "Wood", caption: "Scalloped cedar — Roseville" },
-  { img: project2, type: "Wood", caption: "Modern horizontal slat — Edina" },
-  { img: project3, type: "Metal", caption: "Pool safety enclosure — Plymouth" },
+  { img: fenceWood, type: "Wood", caption: "Horizontal cedar privacy fence — Edina", slot: "gallery_1" },
+  { img: fenceVinyl, type: "Vinyl", caption: "White vinyl with lattice top — Minnetonka", slot: "gallery_2" },
+  { img: fenceAluminum, type: "Metal", caption: "Ornamental aluminum — Plymouth", slot: "gallery_3" },
+  { img: fenceChainlink, type: "Chain Link", caption: "Vinyl-coated chain link — Brooklyn Park", slot: "gallery_4" },
+  { img: fenceCustom, type: "Custom", caption: "Custom wrought iron gate — Wayzata", slot: "gallery_5" },
+  { img: fenceFarm, type: "Wood", caption: "Split rail ranch fence — Maple Grove", slot: "gallery_6" },
+  { img: heroImg, type: "Wood", caption: "Cedar dog-ear privacy — Maplewood", slot: "gallery_7" },
+  { img: project1, type: "Wood", caption: "Scalloped cedar — Roseville", slot: "gallery_8" },
+  { img: project2, type: "Wood", caption: "Modern horizontal slat — Edina", slot: "gallery_9" },
+  { img: project3, type: "Metal", caption: "Pool safety enclosure — Plymouth", slot: "gallery_10" },
 ];
 
 const Gallery = () => {
@@ -34,6 +36,8 @@ const Gallery = () => {
 
   return (
     <Layout>
+      <PageHead title={seoConfig.seo.gallery.title} description={seoConfig.seo.gallery.description} />
+
       <section className="section-padding">
         <div className="container-main">
           <ScrollReveal>
@@ -66,7 +70,7 @@ const Gallery = () => {
               <ScrollReveal key={i} delay={i * 60}>
                 <div className="group relative overflow-hidden rounded-lg">
                   <img
-                    src={item.img}
+                    src={getImage(null, item.slot, item.img)}
                     alt={item.caption}
                     className="w-full aspect-[3/2] object-cover group-hover:scale-105 transition-transform duration-500"
                   />

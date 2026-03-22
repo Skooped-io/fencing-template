@@ -1,13 +1,9 @@
 import { Shield, Users, Hammer, Award } from "lucide-react";
 import Layout from "@/components/Layout";
 import ScrollReveal from "@/components/ScrollReveal";
+import PageHead from "@/components/PageHead";
+import { seoConfig, getImage } from "@/lib/config";
 import heroImg from "@/assets/project-1.jpg";
-
-const team = [
-  { name: "Tom Harrelson", role: "Founder & Lead Installer", years: "18 years experience" },
-  { name: "Maria Vasquez", role: "Project Manager", years: "12 years experience" },
-  { name: "Jake Morrison", role: "Senior Craftsman", years: "10 years experience" },
-];
 
 const values = [
   { icon: Hammer, title: "Craftsmanship First", desc: "Every fence we build reflects our commitment to quality. We use premium materials and time-tested techniques." },
@@ -18,21 +14,23 @@ const values = [
 
 const About = () => (
   <Layout>
+    <PageHead title={seoConfig.seo.about.title} description={seoConfig.seo.about.description} />
+
     <section className="section-padding">
       <div className="container-main grid lg:grid-cols-2 gap-12 items-center">
         <ScrollReveal>
           <div className="space-y-5">
             <h1>Built on Trust,<br />Backed by Craft</h1>
             <p className="text-muted-foreground max-w-lg">
-              Precision Fence Co. was founded in 2008 by Tom Harrelson, a third-generation carpenter who grew up watching his grandfather build fences across rural Minnesota. What started as a two-person crew has grown into the region's most trusted fencing contractor.
+              {seoConfig.about}
             </p>
             <p className="text-muted-foreground max-w-lg">
-              We've installed over 2,400 fences and counting. Every project gets the same attention to detail — whether it's a 50-foot garden border or a multi-acre ranch perimeter.
+              {seoConfig.aboutExtra}
             </p>
           </div>
         </ScrollReveal>
         <ScrollReveal delay={150}>
-          <img src={heroImg} alt="Precision Fence team on a job site" className="rounded-lg shadow-xl w-full aspect-[4/3] object-cover" />
+          <img src={getImage(null, 'about', heroImg)} alt={`${seoConfig.businessName} team on a job site`} className="rounded-lg shadow-xl w-full aspect-[4/3] object-cover" />
         </ScrollReveal>
       </div>
     </section>
@@ -66,7 +64,7 @@ const About = () => (
           <h2 className="text-center mb-12">Meet the Team</h2>
         </ScrollReveal>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {team.map((m, i) => (
+          {seoConfig.team.map((m, i) => (
             <ScrollReveal key={m.name} delay={i * 100}>
               <div className="bg-card rounded-lg p-6 shadow-sm text-center space-y-3">
                 <div className="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto">

@@ -5,8 +5,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Layout from "@/components/Layout";
 import ScrollReveal from "@/components/ScrollReveal";
-
-const fenceOptions = ["Wood Privacy", "Vinyl", "Aluminum / Iron", "Chain Link", "Farm & Ranch", "Custom / Decorative", "Not Sure — Need Advice"];
+import PageHead from "@/components/PageHead";
+import { seoConfig } from "@/lib/config";
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -18,6 +18,8 @@ const Contact = () => {
 
   return (
     <Layout>
+      <PageHead title={seoConfig.seo.contact.title} description={seoConfig.seo.contact.description} />
+
       <section className="section-padding">
         <div className="container-main">
           <ScrollReveal>
@@ -62,7 +64,7 @@ const Contact = () => {
                       <label className="block text-sm font-medium mb-1.5">Fence Type Interest</label>
                       <select className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
                         <option value="">Select a type...</option>
-                        {fenceOptions.map(o => <option key={o} value={o}>{o}</option>)}
+                        {seoConfig.fenceOptions.map(o => <option key={o} value={o}>{o}</option>)}
                       </select>
                     </div>
                     <div>
@@ -91,7 +93,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="text-xs text-muted-foreground">Phone</p>
-                      <a href="tel:5551234567" className="text-sm font-medium hover:text-primary transition-colors">(555) 123-4567</a>
+                      <a href={`tel:${seoConfig.phoneRaw}`} className="text-sm font-medium hover:text-primary transition-colors">{seoConfig.phone}</a>
                     </div>
                   </li>
                   <li className="flex items-center gap-3">
@@ -100,7 +102,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="text-xs text-muted-foreground">Email</p>
-                      <a href="mailto:info@precisionfence.com" className="text-sm font-medium hover:text-primary transition-colors">info@precisionfence.com</a>
+                      <a href={`mailto:${seoConfig.email}`} className="text-sm font-medium hover:text-primary transition-colors">{seoConfig.email}</a>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
@@ -109,12 +111,12 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="text-xs text-muted-foreground">Service Area</p>
-                      <p className="text-sm font-medium">Twin Cities Metro & surrounding counties within 60 miles</p>
+                      <p className="text-sm font-medium">{seoConfig.serviceArea}</p>
                     </div>
                   </li>
                 </ul>
                 <div className="border-t pt-4">
-                  <p className="text-xs text-muted-foreground">License #FEN-2024-1847</p>
+                  <p className="text-xs text-muted-foreground">License #{seoConfig.licenseNumber}</p>
                   <p className="text-xs text-muted-foreground mt-1">Fully Licensed & Insured</p>
                 </div>
 

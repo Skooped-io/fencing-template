@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin } from "lucide-react";
+import { seoConfig } from "@/lib/config";
 
 const Footer = () => (
   <footer className="dark-section">
@@ -8,9 +9,9 @@ const Footer = () => (
         <div>
           <div className="flex items-center gap-2 mb-4">
             <div className="w-8 h-8 bg-primary rounded-sm flex items-center justify-center">
-              <span className="text-primary-foreground font-heading font-bold text-sm">PF</span>
+              <span className="text-primary-foreground font-heading font-bold text-sm">{seoConfig.businessNameShort}</span>
             </div>
-            <span className="font-heading font-bold text-lg">Precision Fence Co.</span>
+            <span className="font-heading font-bold text-lg">{seoConfig.businessName}</span>
           </div>
           <p className="text-sm text-dark-section-foreground/70 leading-relaxed">
             Quality fence installation and repair serving the greater metro area. Licensed, insured, and committed to craftsmanship.
@@ -20,11 +21,11 @@ const Footer = () => (
         <div>
           <h4 className="font-heading font-semibold mb-4 text-accent">Services</h4>
           <ul className="space-y-2 text-sm text-dark-section-foreground/70">
-            <li><Link to="/fence-styles" className="hover:text-dark-section-foreground transition-colors">Wood Privacy Fences</Link></li>
-            <li><Link to="/fence-styles" className="hover:text-dark-section-foreground transition-colors">Vinyl Fences</Link></li>
-            <li><Link to="/fence-styles" className="hover:text-dark-section-foreground transition-colors">Aluminum & Iron</Link></li>
-            <li><Link to="/fence-styles" className="hover:text-dark-section-foreground transition-colors">Chain Link</Link></li>
-            <li><Link to="/fence-styles" className="hover:text-dark-section-foreground transition-colors">Farm & Ranch</Link></li>
+            {seoConfig.services.map((service) => (
+              <li key={service}>
+                <Link to="/fence-styles" className="hover:text-dark-section-foreground transition-colors">{service}</Link>
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -43,23 +44,23 @@ const Footer = () => (
           <ul className="space-y-3 text-sm text-dark-section-foreground/70">
             <li className="flex items-center gap-2">
               <Phone className="w-4 h-4 text-primary" />
-              <a href="tel:5551234567" className="hover:text-dark-section-foreground transition-colors">(555) 123-4567</a>
+              <a href={`tel:${seoConfig.phoneRaw}`} className="hover:text-dark-section-foreground transition-colors">{seoConfig.phone}</a>
             </li>
             <li className="flex items-center gap-2">
               <Mail className="w-4 h-4 text-primary" />
-              <a href="mailto:info@precisionfence.com" className="hover:text-dark-section-foreground transition-colors">info@precisionfence.com</a>
+              <a href={`mailto:${seoConfig.email}`} className="hover:text-dark-section-foreground transition-colors">{seoConfig.email}</a>
             </li>
             <li className="flex items-start gap-2">
               <MapPin className="w-4 h-4 text-primary mt-0.5" />
-              <span>Serving the greater metro area & surrounding counties</span>
+              <span>{seoConfig.serviceArea}</span>
             </li>
           </ul>
         </div>
       </div>
 
       <div className="border-t border-dark-section-foreground/10 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-dark-section-foreground/50">
-        <p>&copy; {new Date().getFullYear()} Precision Fence Co. All rights reserved.</p>
-        <p>Licensed & Insured | Lic #FEN-2024-1847</p>
+        <p>&copy; {new Date().getFullYear()} {seoConfig.businessName} All rights reserved.</p>
+        <p>Licensed & Insured | Lic #{seoConfig.licenseNumber}</p>
       </div>
     </div>
   </footer>

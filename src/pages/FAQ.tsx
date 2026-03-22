@@ -1,5 +1,7 @@
 import Layout from "@/components/Layout";
 import ScrollReveal from "@/components/ScrollReveal";
+import PageHead from "@/components/PageHead";
+import { seoConfig } from "@/lib/config";
 import {
   Accordion,
   AccordionContent,
@@ -46,6 +48,8 @@ const faqs = [
 
 const FAQ = () => (
   <Layout>
+    <PageHead title={seoConfig.seo.faq.title} description={seoConfig.seo.faq.description} />
+
     <section className="section-padding">
       <div className="container-main max-w-3xl">
         <ScrollReveal>

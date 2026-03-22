@@ -136,6 +136,9 @@ const FenceStyles = () => (
                       <div key={tier} className={`text-center p-3 rounded-md ${tier === "best" ? "bg-primary/5 border border-primary/20" : "bg-muted/50"}`}>
                         <span className="block text-xs uppercase tracking-wider text-muted-foreground font-medium">{tier}</span>
                         <span className="block text-lg font-bold mt-1">{style.tiers[tier]}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
                 <Button variant="outline" size="sm" asChild className="mt-2 w-fit">
                   <Link to={`/services/${slugify(style.name)}`}>
@@ -143,9 +146,6 @@ const FenceStyles = () => (
                     <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
                   </Link>
                 </Button>
-                    ))}
-                  </div>
-                </div>
               </div>
             </div>
           </ScrollReveal>

@@ -1,8 +1,8 @@
-import { Check, X } from "lucide-react";
+import { Check, X, ArrowRight } from "lucide-react";
 import Layout from "@/components/Layout";
 import ScrollReveal from "@/components/ScrollReveal";
 import PageHead from "@/components/PageHead";
-import { seoConfig, getImage } from "@/lib/config";
+import { seoConfig, getImage, slugify } from "@/lib/config";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
@@ -101,7 +101,11 @@ const FenceStyles = () => (
             <div className="grid lg:grid-cols-2 gap-8 items-start">
               <img src={getImage(null, style.slot, style.img)} alt={style.name + " fence"} className="rounded-lg shadow-md w-full aspect-[3/2] object-cover" />
               <div className="space-y-5">
-                <h2>{style.name}</h2>
+                <h2>
+                  <Link to={`/services/${slugify(style.name)}`} className="hover:text-primary transition-colors">
+                    {style.name}
+                  </Link>
+                </h2>
                 <p className="text-sm text-muted-foreground"><span className="font-semibold text-foreground">Materials:</span> {style.materials}</p>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
@@ -136,6 +140,12 @@ const FenceStyles = () => (
                     ))}
                   </div>
                 </div>
+                <Button variant="outline" size="sm" asChild className="mt-2 w-fit">
+                  <Link to={`/services/${slugify(style.name)}`}>
+                    Learn More About {style.name}
+                    <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
+                  </Link>
+                </Button>
               </div>
             </div>
           </ScrollReveal>

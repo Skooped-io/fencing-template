@@ -5,7 +5,7 @@ import Layout from "@/components/Layout";
 import ScrollReveal from "@/components/ScrollReveal";
 import PageHead from "@/components/PageHead";
 import SchemaOrg from "@/components/SchemaOrg";
-import { seoConfig, getImage } from "@/lib/config";
+import { seoConfig, getImage, slugify } from "@/lib/config";
 
 import heroImg from "@/assets/hero-fence.jpg";
 import fenceWood from "@/assets/fence-wood.jpg";
@@ -115,7 +115,7 @@ const Index = () => (
           {fenceTypes.map((fence, i) => (
             <ScrollReveal key={fence.name} delay={i * 80}>
               <Link
-                to="/fence-styles"
+                to={`/services/${slugify(fence.name)}`}
                 className="group block bg-card rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300"
               >
                 <div className="overflow-hidden">

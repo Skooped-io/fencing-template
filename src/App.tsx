@@ -9,6 +9,7 @@ import FenceStyles from "./pages/FenceStyles";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
+import ServiceDetail from "./pages/ServiceDetail";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/faq" element={<FAQ />} />
+          <Route path="/services/:slug" element={<ServiceDetail />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </HashRouter>
